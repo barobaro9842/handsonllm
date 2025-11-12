@@ -49,7 +49,7 @@ context = "Your summary should extract the most crucial points that can help res
 data_format = "Create a bullet-point summary that outlines the method. Follow this up with a concise paragraph that encapsulates the main results. \n"
 audience = "The summary is designed for busy researchers that quickly need to grasp the newest trends in Large Language Models. \n"
 tone = "The tone should be professional and clear. \n"
-text = "MY TEXT TO SUMMARIZE"
+text = "MY TEXT TO SUMMARIZEe"
 data = f"Text to summarize: {text}"
 
 query = persona + instruction + context + data_format + audience + tone + data
