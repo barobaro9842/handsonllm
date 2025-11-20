@@ -180,3 +180,30 @@ gc.collect()
 torch.cuda.empty_cache()
 
 from llama_cpp.llama import Llama
+
+llm = Llama.from_pretrained(
+    repo_id = "microsoft/Phi-3-mini-4k-instruct-gguf",
+    filename="*fp16.gguf",
+    n_gpu_layers=-1,
+    n_ctx=4096,
+    verbose=False
+)
+
+output = llm.create_chat_completion(
+    messages=[
+        {
+            "role": "user",
+            "content": "Create a warrior for an RPG in JSON format."
+        }
+    ],
+    response_format=
+    {
+        "type": "json_object"
+    },
+    temperature=0
+)["choices"][0]['message']["content"]
+
+import json
+
+json_output = json.dumps(json.loads(output), indent=4)
+print(json_output)
